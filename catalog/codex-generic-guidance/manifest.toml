@@ -1,0 +1,6 @@
+name = "codex-generic-guidance"
+vendor = "OpenAI"
+product = "Codex"
+model = "gpt-5.4"
+version = ""
+updated_on = "2026-03-22"

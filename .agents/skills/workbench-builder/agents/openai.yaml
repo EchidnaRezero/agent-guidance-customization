@@ -1,0 +1,4 @@
+interface:
+  display_name: "Workbench Builder"
+  short_description: "Build one workbench item"
+  default_prompt: "Use $workbench-builder to create or update one experimental AGENTS.md or skill under workbench/."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Catalog Builder"
+  short_description: "Promote one catalog item"
+  default_prompt: "Use $catalog-builder to move one finished workbench item into catalog/."

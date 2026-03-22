@@ -1,0 +1,4 @@
+interface:
+  display_name: "When Writes Root Documentation"
+  short_description: "Check one root document"
+  default_prompt: "Use $when-writes-root-documentation to check and tighten one root-level document after writing or updating it."

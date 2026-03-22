@@ -1,0 +1,4 @@
+interface:
+  display_name: "Codex Guidance Maintainer"
+  short_description: "Maintain local Codex guidance"
+  default_prompt: "Use $codex-guidance-maintainer to create or update repository-local AGENTS.md files and skills."
