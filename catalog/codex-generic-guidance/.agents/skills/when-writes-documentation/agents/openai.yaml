@@ -1,4 +1,0 @@
-interface:
-  display_name: "When Writes Documentation"
-  short_description: "Check one document"
-  default_prompt: "Use $when-writes-documentation to check and tighten one document after writing or updating it."

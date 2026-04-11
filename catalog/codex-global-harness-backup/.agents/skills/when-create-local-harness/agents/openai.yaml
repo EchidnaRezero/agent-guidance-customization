@@ -1,0 +1,4 @@
+interface:
+  display_name: "when-create-local-harness"
+  short_description: "Global skill for one local repository harness"
+  default_prompt: "Use $when-create-local-harness to create or update one local repository's harness files such as `AGENTS.md`, `README.md`, and local skills."
