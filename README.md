@@ -46,3 +46,8 @@ skills/
         │   └── skills/ : 전역 공통 skill
         └── superpowers/ : 커스텀 workflow 번들
 ```
+
+## Credits
+
+- `superpowers` custom workflow bundle is based on [`obra/superpowers`](https://github.com/obra/superpowers).
+- `obra/superpowers` is distributed under the MIT License.
