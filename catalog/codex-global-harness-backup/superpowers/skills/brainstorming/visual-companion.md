@@ -34,13 +34,13 @@ The server watches a directory for HTML files and serves the newest one to the b
 
 ## Starting a Session
 
-```bash
+```powershell
 # Start server with persistence (mockups saved to project)
-scripts/start-server.sh --project-dir /path/to/project
+bash scripts/start-server.sh --project-dir <project-root>
 
 # Returns: {"type":"server-started","port":52341,"url":"http://localhost:52341",
-#           "screen_dir":"/path/to/project/.superpowers/brainstorm/12345-1706000000/content",
-#           "state_dir":"/path/to/project/.superpowers/brainstorm/12345-1706000000/state"}
+#           "screen_dir":"<project-root>/.superpowers/brainstorm/12345-1706000000/content",
+#           "state_dir":"<project-root>/.superpowers/brainstorm/12345-1706000000/state"}
 ```
 
 Save `screen_dir` and `state_dir` from the response. Tell user to open the URL.
@@ -51,18 +51,18 @@ Save `screen_dir` and `state_dir` from the response. Tell user to open the URL.
 
 **Launching the server in Codex:**
 
-```bash
-# Codex reaps background processes. The script auto-detects CODEX_CI and
-# switches to foreground mode. Run it normally — no extra flags needed.
-scripts/start-server.sh --project-dir /path/to/project
+```powershell
+# On Windows, run the wrapper through bash. The script auto-detects Codex
+# environments that need foreground mode.
+bash scripts/start-server.sh --project-dir <project-root>
 ```
 
 If the URL is unreachable from your browser (common in remote/containerized setups), bind a non-loopback host:
 
-```bash
-scripts/start-server.sh \
-  --project-dir /path/to/project \
-  --host 0.0.0.0 \
+```powershell
+bash scripts/start-server.sh `
+  --project-dir <project-root> `
+  --host 0.0.0.0 `
   --url-host localhost
 ```
 
@@ -252,8 +252,8 @@ If `$STATE_DIR/events` doesn't exist, the user didn't interact with the browser 
 
 ## Cleaning Up
 
-```bash
-scripts/stop-server.sh $SESSION_DIR
+```powershell
+bash scripts/stop-server.sh $SESSION_DIR
 ```
 
 If the session used `--project-dir`, mockup files persist in `.superpowers/brainstorm/` for later reference. Only `/tmp` sessions get deleted on stop.

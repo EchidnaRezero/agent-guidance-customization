@@ -7,9 +7,9 @@ metadata:
 
 # PR Comment Handler
 
-현재 브랜치에 열려 있는 PR을 찾아, 그 PR의 코멘트를 gh CLI로 처리하는 가이드입니다. 모든 `gh` 명령은 네트워크 권한이 있는 상태에서 실행합니다.
+현재 브랜치에 열려 있는 PR을 찾아, 그 PR의 코멘트를 gh CLI로 처리하는 가이드입니다.
 
-사전 준비: `gh`가 인증되어 있는지 확인합니다. 예를 들어 한 번 `gh auth login`을 실행한 뒤, `gh auth status`를 권한 상승과 함께 실행하여(`workflow`/`repo` 범위 포함) `gh` 명령이 정상 동작하게 합니다. 샌드박스 때문에 `gh auth status`가 막히면 `sandbox_permissions=require_escalated`로 다시 실행합니다.
+사전 준비: `gh`가 인증되어 있는지 확인합니다. 예를 들어 한 번 `gh auth login`을 실행한 뒤, `gh auth status`를 실행해 `gh` 명령이 정상 동작하게 합니다.
 
 ## 1) 처리할 코멘트 확인
 - `scripts/fetch_comments.py`를 실행하여 PR의 모든 코멘트와 리뷰 스레드를 출력합니다.
