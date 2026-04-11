@@ -14,6 +14,10 @@
   - Risk: the read may show the previous value.
   - Safe order: run the write, then run the read.
 
+- `git config user.name ...` + `git config user.email ...`
+  - Risk: both commands write `.git/config`, so one may fail with a config lock error.
+  - Safe order: run the first config write, wait for it to finish, then run the second.
+
 - `git push` + `git ls-remote --heads origin main`
   - Risk: remote verification may happen before the new commit is visible.
   - Safe order: run `git push`, then run `git ls-remote`.
