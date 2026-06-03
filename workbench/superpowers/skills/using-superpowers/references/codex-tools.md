@@ -15,7 +15,7 @@ Some upstream skills still use legacy tool names. When you encounter them in a s
 
 ## OS Environment Skills
 
-Windows is the default shell guidance for this workbench.
+Windows is the default shell guidance for this bundled package.
 
 If the current environment is not Windows, load the matching environment skill before interpreting shell snippets or path rules:
 
@@ -25,7 +25,7 @@ If the current environment is not Windows, load the matching environment skill b
 
 ## Subagent dispatch requires multi-agent support
 
-Add to your Codex config (`~/.codex/config.toml`):
+Add to your Codex config (`../config.toml`):
 
 ```toml
 [features]
@@ -85,10 +85,10 @@ skills can dispatch named agent types directly.
 Skills that create worktrees or finish branches should detect their
 environment with read-only git commands before proceeding:
 
-```bash
-GIT_DIR=$(cd "$(git rev-parse --git-dir)" 2>/dev/null && pwd -P)
-GIT_COMMON=$(cd "$(git rev-parse --git-common-dir)" 2>/dev/null && pwd -P)
-BRANCH=$(git branch --show-current)
+```powershell
+$GIT_DIR = git rev-parse --git-dir
+$GIT_COMMON = git rev-parse --git-common-dir
+$BRANCH = git branch --show-current
 ```
 
 - `GIT_DIR != GIT_COMMON` → already in a linked worktree (skip creation)

@@ -1,6 +1,6 @@
 ---
 name: using-superpowers
-description: Use when entering project work in this workbench - routes work into the appropriate superpowers workflow after applying higher-level home and local policy
+description: Use when entering project work with this bundled superpowers workflow - routes work into the appropriate superpowers workflow after applying higher-level home and local policy
 ---
 
 <SUBAGENT-STOP>
@@ -8,7 +8,7 @@ If you were dispatched as a subagent to execute a specific task, skip this skill
 </SUBAGENT-STOP>
 
 <IMPORTANT>
-Use superpowers as the default workflow for project work in this workbench.
+Use superpowers as the default workflow for project work in this bundled package.
 Do not let superpowers override higher-level home policy or repository-local policy.
 </IMPORTANT>
 
@@ -16,8 +16,8 @@ Do not let superpowers override higher-level home policy or repository-local pol
 
 Use this order:
 
-1. `home-global-agents/AGENTS.md` style policy layer
-2. repository-local and workbench-local `AGENTS.md`
+1. the parent harness package `AGENTS.md` policy layer
+2. repository-local and project-local `AGENTS.md`
 3. direct task requirements from the current request
 4. superpowers workflow defaults
 

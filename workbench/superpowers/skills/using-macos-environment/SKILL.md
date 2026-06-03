@@ -28,9 +28,9 @@ Apply this when the work is happening on macOS and the guidance should use macOS
 
 ## Superpowers Adaptation
 
-- Codex clone path: `~/.codex/superpowers`
-- Codex skills path: `~/.agents/skills/superpowers`
-- Global worktree location: `~/.config/superpowers/worktrees/<project-name>`
+- Bundled superpowers root: `.`
+- Bundled skills path: `skills/`
+- Shared worktree location in this bundled item: `worktrees/<project-name>/`
 - Shell-heavy skills such as `using-git-worktrees` and `brainstorming/visual-companion.md` may be interpreted with macOS conventions after this skill is loaded.
 
 ## macOS Notes

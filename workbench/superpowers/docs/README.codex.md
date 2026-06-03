@@ -2,15 +2,22 @@
 
 Guide for using Superpowers with OpenAI Codex via native skill discovery.
 
+This bundled copy is adapted from `obra/superpowers`, which is distributed under the MIT License.
+
 Home `agents.md` remains the highest-level policy. Superpowers is the default workflow layer underneath it.
+
+Parent Codex root relative to this bundled item:
+
+```text
+../
+|-- agents.md
+|-- skills/
+`-- superpowers/   # this bundled directory
+```
 
 ## Quick Install
 
-Tell Codex:
-
-```
-Fetch and follow instructions from https://raw.githubusercontent.com/obra/superpowers/refs/heads/main/.codex/INSTALL.md
-```
+Use the bundled install guide at `.codex/INSTALL.md`.
 
 ## Manual Installation
 
@@ -21,15 +28,12 @@ Fetch and follow instructions from https://raw.githubusercontent.com/obra/superp
 
 ### Windows Steps
 
-1. Clone the repo:
-   ```powershell
-   git clone https://github.com/obra/superpowers.git "$env:USERPROFILE\.codex\superpowers"
-   ```
+1. Place this bundled directory at `superpowers/` under the parent Codex root.
 
 2. Create the skills junction:
    ```powershell
-   New-Item -ItemType Directory -Force -Path "$env:USERPROFILE\.agents\skills"
-   cmd /c mklink /J "$env:USERPROFILE\.agents\skills\superpowers" "$env:USERPROFILE\.codex\superpowers\skills"
+   New-Item -ItemType Directory -Force -Path "..\skills"
+   cmd /c mklink /J "..\skills\superpowers" ".\skills"
    ```
 
 3. Restart Codex.
@@ -42,14 +46,14 @@ Fetch and follow instructions from https://raw.githubusercontent.com/obra/superp
 
 ### Non-Windows Adaptation
 
-If you are rewriting this workflow for macOS, Linux, or WSL, load the matching OS environment skill in this workbench before changing the shell commands or path rules.
+If you are rewriting this workflow for macOS, Linux, or WSL, load the matching OS environment skill in this bundled package before changing the shell commands or path rules.
 
 ## How It Works
 
-Codex has native skill discovery — it scans `~/.agents/skills/` at startup, parses SKILL.md frontmatter, and loads skills on demand. On Windows, Superpowers skills are made visible through a single junction:
+Codex has native skill discovery through `../skills/`. On Windows, Superpowers skills are made visible through a single junction:
 
 ```
-$env:USERPROFILE\.agents\skills\superpowers -> $env:USERPROFILE\.codex\superpowers\skills
+..\skills\superpowers -> .\skills
 ```
 
 The `using-superpowers` skill is discovered automatically and enforces skill usage discipline — no additional configuration needed.
@@ -63,13 +67,13 @@ Skills are discovered automatically. Codex activates them when:
 
 ### Personal Skills
 
-Create your own skills in `~/.agents/skills/`:
+Create your own skills in `../skills/`:
 
-```bash
-mkdir -p ~/.agents/skills/my-skill
+```powershell
+New-Item -ItemType Directory -Force -Path "..\skills\my-skill"
 ```
 
-Create `~/.agents/skills/my-skill/SKILL.md`:
+Create `../skills/my-skill/SKILL.md`:
 
 ```markdown
 ---
@@ -86,31 +90,22 @@ The `description` field is how Codex decides when to activate a skill automatica
 
 ## Updating
 
-```bash
-cd ~/.codex/superpowers && git pull
-```
-
-Skills update instantly through the symlink.
+Replace the bundled `superpowers` directory with a newer packaged copy, then keep the same junction target.
 
 ## Uninstalling
 
-```bash
-rm ~/.agents/skills/superpowers
-```
-
-**Windows (PowerShell):**
 ```powershell
-Remove-Item "$env:USERPROFILE\.agents\skills\superpowers"
+Remove-Item "..\skills\superpowers"
 ```
 
-Optionally delete the clone: `rm -rf ~/.codex/superpowers` (Windows: `Remove-Item -Recurse -Force "$env:USERPROFILE\.codex\superpowers"`).
+Optionally delete this `superpowers/` directory.
 
 ## Troubleshooting
 
 ### Skills not showing up
 
-1. Verify the junction: `Get-ChildItem "$env:USERPROFILE\.agents\skills\superpowers"`
-2. Check skills exist: `Get-ChildItem "$env:USERPROFILE\.codex\superpowers\skills"`
+1. Verify the junction: `Get-ChildItem "..\skills\superpowers"`
+2. Check the packaged skills path you linked to exists
 3. Restart Codex — skills are discovered at startup
 
 ### Windows junction issues

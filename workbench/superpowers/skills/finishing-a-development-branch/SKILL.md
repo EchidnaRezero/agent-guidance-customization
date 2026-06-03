@@ -23,7 +23,7 @@ Default shell guidance is Windows-first. If the current environment is not Windo
 
 **Before presenting options, verify tests pass:**
 
-```bash
+```powershell
 # Run project's test suite
 npm test / cargo test / pytest / go test ./...
 ```
@@ -43,9 +43,12 @@ Stop. Don't proceed to Step 2.
 
 ### Step 2: Determine Base Branch
 
-```bash
+```powershell
 # Try common base branches
-git merge-base HEAD main 2>/dev/null || git merge-base HEAD master 2>/dev/null
+git merge-base HEAD main 2>$null
+if ($LASTEXITCODE -ne 0) {
+  git merge-base HEAD master 2>$null
+}
 ```
 
 Or ask: "This branch split from main - is that correct?"
@@ -75,7 +78,7 @@ If the chosen path will create a commit or push:
 
 #### Option 1: Merge Locally
 
-```bash
+```powershell
 # Switch to base branch
 git checkout <base-branch>
 
@@ -96,19 +99,20 @@ Then: Cleanup worktree (Step 5)
 
 #### Option 2: Push and Create PR
 
-```bash
+```powershell
 # Push branch
 git push -u origin <feature-branch>
 
 # Create PR
-gh pr create --title "<title>" --body "$(cat <<'EOF'
+$prBody = @"
 ## Summary
 <2-3 bullets of what changed>
 
 ## Test Plan
 - [ ] <verification steps>
-EOF
-)"
+"@
+
+gh pr create --title "<title>" --body $prBody
 ```
 
 Then: Cleanup worktree (Step 5)
@@ -134,7 +138,7 @@ Type 'discard' to confirm.
 Wait for exact confirmation.
 
 If confirmed:
-```bash
+```powershell
 git checkout <base-branch>
 git branch -D <feature-branch>
 ```
@@ -152,7 +156,7 @@ git worktree list | Select-String $branch
 ```
 
 If yes:
-```bash
+```powershell
 git worktree remove <worktree-path>
 ```
 

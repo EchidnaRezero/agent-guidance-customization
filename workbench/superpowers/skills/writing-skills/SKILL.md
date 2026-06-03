@@ -9,7 +9,7 @@ description: Use when creating new skills, editing existing skills, or verifying
 
 **Writing skills IS Test-Driven Development applied to process documentation.**
 
-**Personal skills live in `~/.agents/skills/` for Codex.**
+**Personal skills live in `../skills/` at the parent Codex root.**
 
 Home `agents.md` is the top policy layer. Skills sit below that policy and should not try to replace it.
 

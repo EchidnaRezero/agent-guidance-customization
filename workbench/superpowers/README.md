@@ -2,7 +2,9 @@
 
 Superpowers is a complete software development workflow for your coding agents, built on top of a set of composable "skills" and some initial instructions that make sure your agent uses them.
 
-In this workbench, home `agents.md` is the highest-level policy. Superpowers operates below that as the default workflow layer.
+This bundled copy is adapted from `obra/superpowers`, which is distributed under the MIT License.
+
+In this bundled package, home `agents.md` is the highest-level policy. Superpowers operates below that as the default workflow layer.
 
 ## How it works
 
@@ -14,7 +16,7 @@ After you've signed off on the design, your agent puts together an implementatio
 
 Next up, once you say "go", it launches a *subagent-driven-development* process, having agents work through each engineering task, inspecting and reviewing their work, and continuing forward.
 
-There's a bunch more to it, but that's the core of the system. In this workbench, superpowers is the default project workflow rather than the top policy layer.
+There's a bunch more to it, but that's the core of the system. In this bundled package, superpowers is the default project workflow rather than the top policy layer.
 
 
 ## Sponsorship
@@ -28,17 +30,13 @@ Thanks!
 
 ## Installation
 
-This workbench is currently maintained for Codex only.
+This bundled copy is currently maintained for Codex only.
 
 ### Codex
 
-Windows is the default environment for this workbench. If you are adapting the workflow for macOS, Linux, or WSL, load the matching OS environment skill first.
+Windows is the default environment for this bundled package. If you are adapting the workflow for macOS, Linux, or WSL, load the matching OS environment skill first.
 
-Tell Codex:
-
-```
-Fetch and follow instructions from https://raw.githubusercontent.com/obra/superpowers/refs/heads/main/.codex/INSTALL.md
-```
+Use the bundled install guide in `.codex/INSTALL.md`.
 
 **Detailed docs:** [docs/README.codex.md](docs/README.codex.md)
 
@@ -112,11 +110,9 @@ See `skills/writing-skills/SKILL.md` for the complete guide.
 
 ## Updating
 
-Skills update automatically when you update the plugin:
+This bundled `superpowers` copy is a customized derivative of `obra/superpowers`.
 
-```bash
-/plugin update superpowers
-```
+If upstream changes are detected, inform the user first and decide whether to merge, adapt, or ignore those changes before updating this bundled copy.
 
 ## License
 

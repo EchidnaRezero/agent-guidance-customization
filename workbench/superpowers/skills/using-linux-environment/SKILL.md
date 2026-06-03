@@ -27,9 +27,9 @@ Apply this when the work is happening on Linux and the guidance should use Linux
 
 ## Superpowers Adaptation
 
-- Codex clone path: `~/.codex/superpowers`
-- Codex skills path: `~/.agents/skills/superpowers`
-- Global worktree location: `~/.config/superpowers/worktrees/<project-name>`
+- Bundled superpowers root: `.`
+- Bundled skills path: `skills/`
+- Shared worktree location in this bundled item: `worktrees/<project-name>/`
 - Shell-heavy skills such as `using-git-worktrees` and `brainstorming/visual-companion.md` may be interpreted with Linux conventions after this skill is loaded.
 
 ## Browser and Server Notes

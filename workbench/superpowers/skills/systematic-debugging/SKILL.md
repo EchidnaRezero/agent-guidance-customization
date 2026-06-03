@@ -86,15 +86,15 @@ You MUST complete each phase before proceeding to the next.
    THEN investigate that specific component
    ```
 
-   **Example (multi-layer system):**
-   ```bash
+   **Example (multi-layer system, non-Windows signing pipeline):**
+   ```powershell
    # Layer 1: Workflow
-   echo "=== Secrets available in workflow: ==="
-   echo "IDENTITY: ${IDENTITY:+SET}${IDENTITY:-UNSET}"
+   Write-Host "=== Secrets available in workflow: ==="
+   if ($env:IDENTITY) { Write-Host "IDENTITY: SET" } else { Write-Host "IDENTITY: UNSET" }
 
    # Layer 2: Build script
-   echo "=== Env vars in build script: ==="
-   env | grep IDENTITY || echo "IDENTITY not in environment"
+   Write-Host "=== Env vars in build script: ==="
+   if ($env:IDENTITY) { Write-Host "IDENTITY=$env:IDENTITY" } else { Write-Host "IDENTITY not in environment" }
 
    # Layer 3: Signing script
    echo "=== Keychain state: ==="

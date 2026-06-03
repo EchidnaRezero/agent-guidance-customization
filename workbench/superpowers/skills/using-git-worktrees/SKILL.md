@@ -44,7 +44,7 @@ If no directory exists and no project guidance preference:
 No worktree directory found. Where should I create worktrees?
 
 1. .worktrees/ (project-local, hidden)
-2. %USERPROFILE%\.superpowers\worktrees\<project-name>\ (global location on Windows)
+2. worktrees\<project-name>\ (shared location inside this bundled superpowers root on Windows)
 
 Which would you prefer?
 ```
@@ -55,9 +55,14 @@ Which would you prefer?
 
 **MUST verify directory is ignored before creating worktree:**
 
-```bash
+```powershell
 # Check if directory is ignored (respects local, global, and system gitignore)
-git check-ignore -q .worktrees 2>/dev/null || git check-ignore -q worktrees 2>/dev/null
+git check-ignore -q .worktrees 2>$null
+$ignored = $LASTEXITCODE -eq 0
+if (-not $ignored) {
+  git check-ignore -q worktrees 2>$null
+  $ignored = $LASTEXITCODE -eq 0
+}
 ```
 
 **If NOT ignored:**
@@ -69,7 +74,7 @@ Per Jesse's rule "Fix broken things immediately":
 
 **Why critical:** Prevents accidentally committing worktree contents to repository.
 
-### For Global Directory (%USERPROFILE%\.superpowers\worktrees)
+### For Shared Directory (worktrees/)
 
 No .gitignore verification needed - outside project entirely.
 
@@ -87,7 +92,7 @@ $project = Split-Path -Leaf (git rev-parse --show-toplevel)
 if ($LOCATION -in @('.worktrees', 'worktrees')) {
   $path = Join-Path $LOCATION $BRANCH_NAME
 } else {
-  $path = Join-Path "$env:USERPROFILE\.superpowers\worktrees\$project" $BRANCH_NAME
+  $path = Join-Path "worktrees\\$project" $BRANCH_NAME
 }
 
 git worktree add "$path" -b "$BRANCH_NAME"
@@ -110,7 +115,7 @@ if (Test-Path go.mod) { go mod download }
 
 Run tests to ensure worktree starts clean:
 
-```bash
+```powershell
 # Examples - use project-appropriate command
 npm test
 cargo test
@@ -175,7 +180,7 @@ You: I'm using the using-git-worktrees skill to set up an isolated workspace.
 [Run npm install]
 [Run npm test - 47 passing]
 
-Worktree ready at /Users/jesse/myproject/.worktrees/auth
+Worktree ready at %USERPROFILE%\myproject\.worktrees\auth
 Tests passing (47 tests, 0 failures)
 Ready to implement auth feature
 ```
