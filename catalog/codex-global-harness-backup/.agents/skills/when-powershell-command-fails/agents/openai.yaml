@@ -1,0 +1,4 @@
+interface:
+  display_name: "When PowerShell Command Fails"
+  short_description: "Explain failed PowerShell commands"
+  default_prompt: "Use $when-powershell-command-fails to explain a failed Windows PowerShell command and record the failure pattern."

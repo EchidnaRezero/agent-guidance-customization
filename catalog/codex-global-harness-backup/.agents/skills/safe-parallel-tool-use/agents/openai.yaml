@@ -1,4 +1,0 @@
-interface:
-  display_name: "Safe Parallel Tool Use"
-  short_description: "Avoid unsafe parallel command races."
-  default_prompt: "Use $safe-parallel-tool-use to decide whether the planned commands are safe to run in parallel."

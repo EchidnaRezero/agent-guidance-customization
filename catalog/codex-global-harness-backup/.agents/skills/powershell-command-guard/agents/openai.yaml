@@ -1,4 +1,0 @@
-interface:
-  display_name: "PowerShell Command Guard"
-  short_description: "Warn on risky PowerShell commands"
-  default_prompt: "Use $powershell-command-guard to check whether a planned Windows PowerShell command should be avoided or replaced."

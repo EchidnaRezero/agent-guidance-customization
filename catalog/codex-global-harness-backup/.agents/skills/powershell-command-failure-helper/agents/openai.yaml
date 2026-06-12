@@ -1,4 +1,0 @@
-interface:
-  display_name: "PowerShell Command Failure Helper"
-  short_description: "Explain failed PowerShell commands"
-  default_prompt: "Use $powershell-command-failure-helper to explain a failed or blocked Windows PowerShell command and record the failure pattern."

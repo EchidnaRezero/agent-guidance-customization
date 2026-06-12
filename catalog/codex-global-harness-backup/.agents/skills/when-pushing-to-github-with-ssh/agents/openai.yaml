@@ -1,0 +1,4 @@
+interface:
+  display_name: "When Pushing To GitHub With SSH"
+  short_description: "Check GitHub SSH account before push"
+  default_prompt: "Use this before pushing to GitHub with SSH."

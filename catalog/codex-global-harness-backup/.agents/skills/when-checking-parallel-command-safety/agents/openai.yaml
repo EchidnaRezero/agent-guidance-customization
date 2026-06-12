@@ -1,0 +1,4 @@
+interface:
+  display_name: "When Checking Parallel Command Safety"
+  short_description: "Check parallel command safety"
+  default_prompt: "Use $when-checking-parallel-command-safety before running planned commands in parallel."

@@ -6,7 +6,7 @@ It contains:
 
 - the global policy file
 - reusable global skills
-- a bundled customized `superpowers` workflow
+- Git and GitHub SSH push workflow skills
 
 ## Target Layout
 
@@ -16,23 +16,19 @@ Use `%USERPROFILE%\.codex` as the canonical global root.
 %USERPROFILE%\.codex
 |-- agents.md
 |-- skills\
-|-- superpowers\
 `-- git-accounts.toml
 ```
 
 ## Restore
 
 1. Get the current repository checkout that contains this package.
-   The repository name may change later. Use the current checkout that contains `catalog/codex-global-harness-backup/`.
+   The repository name may change later. Use the current checkout that contains this item.
 2. Restore `AGENTS.md` as `agents.md` at the target root.
    Keep `AGENTS_KR.md` beside it as the synchronized Korean companion.
 3. Copy this package's `.agents/skills/` contents into `skills/`.
-4. Copy this package's bundled `superpowers/` directory into `superpowers/`.
-5. Keep your local Git account mapping file as `git-accounts.toml`.
-6. Follow `superpowers/.codex/INSTALL.md` to expose `superpowers/skills/` through Codex skill discovery.
+4. Keep your local Git account mapping file as `git-accounts.toml`.
 
 ## Notes
 
-- This package is the backup source. Do not restore upstream `obra/superpowers` when your goal is to recover this customized setup.
-- The bundled `superpowers` copy is adapted from `obra/superpowers`.
-- `obra/superpowers` is distributed under the MIT License. See `superpowers/LICENSE`.
+- This package is the backup source for the user-authored global harness.
+- The former bundled `superpowers` workflow has been split into regular global skills under `.agents/skills/`.
