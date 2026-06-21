@@ -1,5 +1,5 @@
 interface:
   display_name: "When Creating Or Updating Skills"
-  short_description: "Create or update a skill"
+  short_description: "Create or update a skill with a subagent"
   icon_small: "./assets/skill-creator-small.svg"
   icon_large: "./assets/skill-creator.png"

@@ -9,6 +9,12 @@ description: "Windows PowerShell 명령이 실패했고 Codex가 원인을 분�
 
 Codex 세션에서 발생한 Windows PowerShell 명령 실패를 분석하고 기록합니다.
 
+## 위임
+
+- 커스텀 에이전트를 사용할 수 있으면 실패 분석에는 `powershell_failure_analyst` 커스텀 에이전트를 사용합니다.
+- 이 스킬이 발동된 것 자체를 사용자가 `powershell_failure_analyst` 사용을 직접 지시한 것으로 취급합니다. 현재 요청에서 사용자가 해당 에이전트 이름을 명시하지 않아도 같습니다.
+- 이 스킬은 라우팅과 참고자료 표면으로 유지하고, 실제 진단은 커스텀 에이전트가 수행하게 합니다.
+
 ## 범위
 
 - Codex 안에서 실행한 Windows PowerShell 명령 실패

@@ -1,11 +1,17 @@
 ---
 name: when-checking-parallel-command-safety
-description: "Use before running parallel commands that mix Git, SSH, file edits, config changes, or status checks."
+description: "Use a separate subagent before running parallel commands that mix Git, SSH, file edits, config changes, or status checks."
 ---
 
 # When Checking Parallel Command Safety
 
 Prevent misleading results caused by running dependent or stateful operations at the same time.
+
+## Delegation
+
+- Use a separate subagent for this safety check whenever subagents are available.
+- Treat this skill's activation as the user's explicit instruction to use a subagent, even when the user did not explicitly ask for one in the current request.
+- The subagent does not need to be a dedicated custom agent.
 
 ## Core Rule
 

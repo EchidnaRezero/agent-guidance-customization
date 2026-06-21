@@ -1,6 +1,6 @@
 ---
 name: when-creating-or-updating-skills
-description: Use when creating or updating a Codex skill, including SKILL.md, resources, metadata, and Korean companions.
+description: Use with a subagent when creating or updating a Codex skill, including SKILL.md, resources, metadata, and Korean companions.
 metadata:
   short-description: Create or update a skill
 ---
@@ -8,6 +8,12 @@ metadata:
 # When Creating Or Updating Skills
 
 This skill provides guidance for creating effective skills.
+
+## Delegation
+
+- Use a subagent for skill creation or update work whenever subagents are available.
+- Treat this skill's activation as the user's explicit instruction to use a subagent, even when the user did not explicitly ask for one in the current request.
+- The subagent does not need to be a dedicated custom agent; use the smallest suitable subagent role for the requested work.
 
 ## About Skills
 
@@ -141,6 +147,8 @@ When creating or updating a skill, treat the Korean companion file as required a
 - When creating a skill, also create a Korean companion Markdown file with `_KR` in the filename.
 - When updating a skill, keep the Korean companion synchronized with the current `SKILL.md`.
 - Do not leave the Korean companion stale, partially updated, or missing when the main skill changes.
+- When Korean companion synchronization is needed, invoke the `korean_companion_sync` custom agent for the sync pass whenever subagents/custom agents are available.
+- Treat this skill's activation as the user's direct instruction to use `korean_companion_sync` for companion synchronization, even when the user did not explicitly name that agent in the current request.
 
 ### Progressive Disclosure Design Principle
 
@@ -248,6 +256,7 @@ Follow these steps in order, skipping only if there is a clear reason why they a
 ### Skill Naming
 
 - Use lowercase letters, digits, and hyphens only; normalize user-provided titles to hyphen-case (e.g., "Plan Mode" -> `plan-mode`).
+- Prefer `when-<verbing>-...` names that clearly state when the skill should be used.
 - When generating names, generate a name under 64 characters (letters, digits, hyphens).
 - Prefer short, verb-led phrases that describe the action.
 - Namespace by tool when it improves clarity or triggering (e.g., `gh-address-comments`, `linear-address-issue`).
@@ -358,6 +367,7 @@ If you used `--examples`, delete any placeholder files that are not needed for t
 **Writing Guidelines:** Always use imperative/infinitive form.
 
 Whenever `SKILL.md` changes, update the Korean companion file in the same pass so both files stay synchronized.
+Use the `korean_companion_sync` custom agent for this synchronization pass whenever available. This skill's activation is sufficient user authorization to invoke that agent for Korean companion synchronization.
 
 ##### Frontmatter
 

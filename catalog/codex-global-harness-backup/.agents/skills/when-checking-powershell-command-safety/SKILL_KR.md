@@ -1,6 +1,6 @@
 ---
 name: when-checking-powershell-command-safety
-description: "위험하거나 파괴적이거나 차단될 수 있는 Windows PowerShell 명령을 실행하기 전 사용합니다."
+description: "위험하거나 파괴적이거나 차단될 수 있는 Windows PowerShell 명령을 실행하기 전 별도 서브에이전트로 점검할 때 사용합니다."
 ---
 
 # When Checking PowerShell Command Safety
@@ -8,6 +8,12 @@ description: "위험하거나 파괴적이거나 차단될 수 있는 Windows Po
 ## 목표
 
 위험하거나 허용되지 않는 Windows PowerShell 명령이 실행되기 전에 막습니다.
+
+## 위임
+
+- 서브에이전트를 사용할 수 있으면 이 안전 점검은 별도 서브에이전트에게 맡깁니다.
+- 이 스킬이 발동된 것 자체를 사용자가 서브에이전트 사용을 명시적으로 지시한 것으로 취급합니다. 현재 요청에서 사용자가 서브에이전트를 직접 요청하지 않아도 같습니다.
+- 전담 커스텀 에이전트일 필요는 없습니다.
 
 ## 워크플로
 

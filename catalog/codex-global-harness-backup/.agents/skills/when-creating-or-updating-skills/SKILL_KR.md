@@ -1,6 +1,6 @@
 ---
 name: when-creating-or-updating-skills
-description: Codex skill을 만들거나 업데이트할 때 사용합니다. SKILL.md, resource, metadata, Korean companion을 포함합니다.
+description: 서브에이전트로 Codex skill을 만들거나 업데이트할 때 사용합니다. SKILL.md, resource, metadata, Korean companion을 포함합니다.
 metadata:
   short-description: 스킬 만들기 또는 수정하기
 ---
@@ -8,6 +8,12 @@ metadata:
 # When Creating Or Updating Skills
 
 이 스킬은 효과적인 스킬을 만들고 수정하는 방법을 안내합니다.
+
+## 위임
+
+- 서브에이전트를 사용할 수 있으면 스킬 생성 또는 업데이트 작업은 서브에이전트에게 맡깁니다.
+- 이 스킬이 발동된 것 자체를 사용자가 서브에이전트 사용을 명시적으로 지시한 것으로 취급합니다. 현재 요청에서 사용자가 서브에이전트를 직접 요청하지 않아도 같습니다.
+- 전담 커스텀 에이전트일 필요는 없습니다. 요청한 작업에 맞는 가장 작은 적절한 서브에이전트 역할을 사용합니다.
 
 ## 스킬이 하는 일
 
@@ -128,6 +134,8 @@ skill-name/
 - 스킬을 만들 때는 `_KR`가 들어간 한국어 Markdown 파일도 같이 만듭니다.
 - 스킬을 수정할 때는 한국어 동반 파일을 현재 `SKILL.md`와 동기화합니다.
 - 메인 스킬이 바뀌었는데 한국어판이 빠졌거나 일부만 바뀐 상태로 두지 않습니다.
+- 한국어 동반 파일 동기화가 필요하면 서브에이전트나 커스텀 에이전트를 사용할 수 있는 환경에서 `korean_companion_sync` 커스텀 에이전트를 호출합니다.
+- 이 스킬이 발동된 것 자체를 한국어 동반 파일 동기화 작업에 대해 사용자가 `korean_companion_sync` 호출을 직접 지시한 것으로 취급합니다. 현재 요청에서 사용자가 그 에이전트 이름을 명시하지 않아도 같습니다.
 
 ## 스킬 제작 절차
 
@@ -143,6 +151,7 @@ skill-name/
 ### 스킬 이름
 
 - 소문자, 숫자, 하이픈만 사용
+- 언제 쓰는지 분명히 드러나는 `when-<동명사>-...` 형태의 이름을 우선합니다.
 - 64자 이하
 - 가능하면 짧고 동작이 드러나는 이름
 - 폴더 이름은 스킬 이름과 같게
@@ -199,6 +208,7 @@ scripts/init_skill.py my-skill --path custom/skills --resources scripts --exampl
 작성은 명령형/동사형으로 씁니다.
 
 `SKILL.md`를 바꿀 때는 같은 작업 흐름 안에서 한국어 동반 파일도 함께 바꿔 두 파일이 계속 동기화되게 합니다.
+가능하면 이 동기화 단계에는 `korean_companion_sync` 커스텀 에이전트를 사용합니다. 이 스킬이 발동된 것만으로도 한국어 동반 파일 동기화를 위한 해당 에이전트 호출 권한이 있다고 봅니다.
 
 ##### Frontmatter
 

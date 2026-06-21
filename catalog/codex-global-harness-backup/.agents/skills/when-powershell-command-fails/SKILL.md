@@ -9,6 +9,12 @@ description: "Use when a Windows PowerShell command fails and Codex should analy
 
 Analyze and log Windows PowerShell command failures in Codex sessions.
 
+## Delegation
+
+- Use the `powershell_failure_analyst` custom agent for the failure analysis whenever custom agents are available.
+- Treat this skill's activation as the user's direct instruction to use `powershell_failure_analyst`, even when the user did not explicitly name that agent in the current request.
+- Keep this skill as the routing and reference surface; let the custom agent perform the diagnosis.
+
 ## Scope
 
 - Windows PowerShell command failures in Codex

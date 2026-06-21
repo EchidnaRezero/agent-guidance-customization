@@ -2,34 +2,18 @@
 - 이 파일은 `.codex` 전역 환경의 최상위 정책을 설명하는 한국어 동반 문서입니다.
 - 저장소 로컬 `AGENTS.md`는 해당 저장소에서만 적용되는 규칙을 추가하거나 덮어쓸 수 있습니다.
 
-## Terminology
-- 전역 하네스: `%USERPROFILE%\.codex` 아래에 설치되어 여러 저장소에서 재사용하는 전역 하네스입니다.
-- 로컬 하네스: 각 개별 저장소에서 그 프로젝트만을 위해 두는 하네스입니다.
-- 하네스: `AGENTS.md`와 스킬 파일들이며, 경우에 따라 `README.md`도 프로젝트 하네스의 일부가 될 수 있습니다.
-
 ## Language
 - 사용자와는 항상 한국어로 대화합니다.
-- Markdown 문서는 사용자가 다른 언어를 요청하지 않는 한 기본적으로 한국어로 작성합니다.
-- `AGENTS.md`, `SKILL.md` 같은 AI용 지침 문서는 사용자가 다른 언어를 요청하지 않는 한 영어로 작성합니다.
-- `AGENTS.md`를 에이전트용 정본 정책 파일로 취급합니다.
-- `AGENTS_KR.md`는 사용자를 위한 한국어 동반 문서로 취급합니다.
-- 둘 중 하나를 만들거나 수정할 때는 나머지 하나도 같이 만들거나 수정하고, 서로 동기화된 상태를 유지합니다.
-- 스킬은 `SKILL.md`를 에이전트용 정본으로 취급합니다.
-- `SKILL_KR.md` 같은 파일은 사용자를 위한 한국어 동반 문서로 취급합니다.
-- 현재 작업이 생성, 수정, 동기화가 아니라면 `_KR` 스킬 동반 문서는 읽지 않습니다.
-- 기술 내용을 설명하거나 사용자에게 요청할 때는 먼저 중학생도 이해할 수 있게 목적과 상황을 설명한 뒤 기술 용어를 사용합니다.
+- 사용자가 다른 언어를 요청하지 않는 한 하네스 문서는 기본적으로 영어로 작성합니다.
+- 하네스 문서를 생성하거나 업데이트할 때는 `korean_companion_sync` 커스텀 에이전트를 사용해 영어 정본 문서와 `_KR` 동반 파일을 동기화합니다.
 
 ## Environment
 - 기본 실행 환경은 WSL이나 Linux가 아니라 Windows라고 가정합니다.
 - 사용자가 직접 실행할 명령을 제안할 때는 PowerShell 전용 동작이 필요하지 않은 한 `cmd` 문법을 우선합니다.
-- 현재 환경이 Windows가 아니라면 기본 Windows 규칙 적용을 멈추고, 그 OS에 맞는 환경 스킬을 먼저 불러옵니다.
-- 예상되는 비Windows 환경 스킬은 다음과 같습니다.
-  - `using-macos-environment`
-  - `using-linux-environment`
-  - `using-wsl-environment`
+- 현재 환경이 Windows가 아니라면 기본 Windows 규칙 적용을 멈추고, 계속하기 전에 해당 환경에 맞는 지침을 확인합니다.
 
 ## Workflow
-- 기본적으로 프로젝트 작업은 현재 저장소가 더 구체적인 로컬 workflow를 정의하지 않는 한, 커스텀 `superpowers` workflow를 따릅니다.
+- 적용 가능한 가장 구체적인 저장소 또는 하네스 workflow를 따릅니다.
 
 ## Security
 - 프로젝트 보안 수준은 보통 `writing-plans`에서 결정합니다.
@@ -39,11 +23,7 @@
 - 보안 설계가 선택한 수준보다 무거워 보이면 이유를 설명하고 확인을 받습니다.
 
 ## Git
-- `writing-plans`에서 이번 workflow가 commit이나 push를 만들지 먼저 결정합니다.
-- Git 산출물이 생긴다면 planning에서 어떤 Git 계정을 쓸지 묻습니다.
-- 사용자가 고르면 `git-accounts.toml` 같은 로컬 Git 계정 매핑 문서를 확인합니다.
-- 첫 commit이나 push 전에는 그 계정에 맞는 repo-local `user.name`, `user.email`을 설정합니다.
-- 전역 Git identity는 사용하지 않습니다.
+- Git workflow 점검, identity 처리, commit/push 준비, 안전한 cleanup 판단에는 `git_steward` 커스텀 에이전트를 사용합니다.
 
 ## Code Design
 - 각 파일, 클래스, 함수는 역할을 하나씩만 갖게 합니다.

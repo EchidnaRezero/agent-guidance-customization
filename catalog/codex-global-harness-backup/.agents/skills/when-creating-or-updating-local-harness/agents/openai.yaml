@@ -1,4 +1,0 @@
-interface:
-  display_name: "When Creating Or Updating Local Harness"
-  short_description: "Create or update local harness files"
-  default_prompt: "Use $when-creating-or-updating-local-harness to create or update one repository's harness files."
