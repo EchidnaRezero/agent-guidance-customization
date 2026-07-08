@@ -1,4 +1,0 @@
-interface:
-  display_name: "When Writing Or Checking Markdown Docs"
-  short_description: "Check one Markdown document"
-  default_prompt: "Use $when-writing-or-checking-markdown-docs to check and tighten one Markdown document."

@@ -1,19 +1,11 @@
 ---
-name: when-writing-or-checking-markdown-docs
-description: "Use when writing, editing, or checking Markdown docs; review the whole document after writing."
+name: when-writing-markdown-docs
+description: "Use when writing or editing Markdown docs; review the whole document after writing."
 ---
 
-# When Writing Or Checking Markdown Docs
+# When Writing Markdown Docs
 
 ## Writing Criteria
-
-### Default Content
-
-- By default, write only these kinds of content unless a more specific local rule or the user's direct instruction requires more:
-  - purpose: one line that says what it is for and what it is used to do; omit it when the title already makes that clear enough
-  - structure
-  - execution or behavior order
-  - usage
 
 ### Do Not Add Without Explicit Need
 
@@ -27,7 +19,7 @@ description: "Use when writing, editing, or checking Markdown docs; review the w
   - change descriptions
   - self-referential meta text that explains the document itself unless it is necessary to the content
   - descriptions of content that is no longer present in the current document because it was changed or removed
-- If the document needs content beyond the default content above and there is no local rule or user instruction that covers it, ask the user first.
+- If the document needs content not covered by a local rule or user instruction, ask the user first.
 
 ### Local and Personal Data
 
@@ -38,8 +30,3 @@ description: "Use when writing, editing, or checking Markdown docs; review the w
 
 - For documents that describe structure and behavior, present the overall view first with an appropriate visualization tool. Split it into separate visuals when the number of items is too large.
 - If a prose block grows beyond five lines, split it into itemized sections.
-
-## Review Criteria
-
-- Check whether the document follows the writing criteria above.
-- After writing or changing a document, read the whole document and check whether it contains duplicate or similar content. Ask the user before merging, consolidating, or absorbing overlapping content within one document or across documents.

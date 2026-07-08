@@ -1,0 +1,4 @@
+interface:
+  display_name: "When Writing Markdown Docs"
+  short_description: "Write one Markdown document"
+  default_prompt: "Use $when-writing-markdown-docs to write or edit one Markdown document."

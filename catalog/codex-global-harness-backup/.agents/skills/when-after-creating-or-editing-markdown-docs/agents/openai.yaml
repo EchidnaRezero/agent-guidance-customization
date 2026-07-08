@@ -1,0 +1,4 @@
+interface:
+  display_name: "After Creating Or Editing Markdown Docs"
+  short_description: "Review and revise specified expressions"
+  default_prompt: "Use $when-after-creating-or-editing-markdown-docs immediately after creating or editing Markdown docs; this trigger is mandatory."
