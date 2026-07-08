@@ -9,6 +9,8 @@ description: GitHub SSH push 또는 push가 필요한 PR 전, ssh -T, ssh_host, 
 
 GitHub remote, SSH key, 계정 identity가 관련되면 추측하지 않습니다. 기존 계정 매핑과 SSH 설정을 확인하기 전에는 새 GitHub key 등록, remote 변경, SSH config 수정을 제안하지 않습니다.
 
+Windows에서는 GitHub SSH 작업에 Git for Windows SSH(`C:/Program Files/Git/usr/bin/ssh.exe`)보다 Windows OpenSSH(`C:/Windows/System32/OpenSSH/ssh.exe`)를 우선적으로 확인하고 사용합니다.
+
 ## 필수 확인
 
 `git push` 또는 push가 필요한 PR 작업 전에는 다음을 확인합니다.

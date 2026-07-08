@@ -9,6 +9,8 @@ description: Use before GitHub SSH push or PR push; check ssh -T, ssh_host, repo
 
 Do not guess when GitHub remotes, SSH keys, or account identity are involved. Do not suggest new GitHub key registration, remote rewrites, or SSH config edits before checking the existing account mapping and SSH setup.
 
+On Windows, prefer checking and using Windows OpenSSH (`C:/Windows/System32/OpenSSH/ssh.exe`) over Git for Windows SSH (`C:/Program Files/Git/usr/bin/ssh.exe`) for GitHub SSH operations.
+
 ## Required Checks
 
 Before `git push` or any PR action that needs push:
