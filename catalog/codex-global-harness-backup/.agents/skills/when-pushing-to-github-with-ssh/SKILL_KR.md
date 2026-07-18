@@ -11,6 +11,15 @@ GitHub remote, SSH key, 계정 identity가 관련되면 추측하지 않습니�
 
 Windows에서는 GitHub SSH 작업에 Git for Windows SSH(`C:/Program Files/Git/usr/bin/ssh.exe`)보다 Windows OpenSSH(`C:/Windows/System32/OpenSSH/ssh.exe`)를 우선적으로 확인하고 사용합니다.
 
+```text
+Git for Windows `git.exe`
+→ global `core.sshCommand`의 Windows OpenSSH
+→ Windows `ssh-agent`
+→ 저장된 계정별 키
+→ `ssh -T` 계정 확인
+→ `push`
+```
+
 ## 필수 확인
 
 `git push` 또는 push가 필요한 PR 작업 전에는 다음을 확인합니다.
@@ -34,6 +43,8 @@ ssh -T git@<ssh_host>
 모두 같은 의도된 계정을 가리킬 때만 push합니다.
 
 ## 인증이 실패할 때
+
+`ssh-add`가 agent 연결 실패를 반환하면 키 문제로 판단하지 않습니다. Windows `ssh-agent` 서비스를 확인하고, 중지 상태면 시작한 뒤 다시 검사합니다.
 
 `ssh -T`가 실패하면 SSH config의 기존 `IdentityFile`을 사용합니다. 기존 매핑과 key file이 틀렸다는 것이 확인되기 전에는 새 key를 만들거나 등록하지 않습니다.
 

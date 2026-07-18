@@ -11,6 +11,15 @@ Do not guess when GitHub remotes, SSH keys, or account identity are involved. Do
 
 On Windows, prefer checking and using Windows OpenSSH (`C:/Windows/System32/OpenSSH/ssh.exe`) over Git for Windows SSH (`C:/Program Files/Git/usr/bin/ssh.exe`) for GitHub SSH operations.
 
+```text
+Git for Windows `git.exe`
+→ Windows OpenSSH through global `core.sshCommand`
+→ Windows `ssh-agent`
+→ stored key for the selected account
+→ verify the account with `ssh -T`
+→ `push`
+```
+
 ## Required Checks
 
 Before `git push` or any PR action that needs push:
@@ -34,6 +43,8 @@ Compare these values:
 Push only when they describe the same intended account.
 
 ## If Authentication Fails
+
+If `ssh-add` reports an agent connection failure, do not treat it as a key problem. Check the Windows `ssh-agent` service, start it if it is stopped, then check again.
 
 If `ssh -T` fails, use the existing `IdentityFile` from SSH config. Do not create or register a new key unless the existing mapping and key file are proven wrong.
 
