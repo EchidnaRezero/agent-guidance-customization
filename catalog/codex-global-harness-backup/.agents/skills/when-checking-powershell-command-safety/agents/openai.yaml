@@ -1,4 +1,4 @@
 interface:
   display_name: "When Checking PowerShell Command Safety"
-  short_description: "Check PowerShell command safety with a subagent"
-  default_prompt: "Use $when-checking-powershell-command-safety with a separate subagent before running a risky Windows PowerShell command."
+  short_description: "Approve PowerShell commands with system-wide effects"
+  default_prompt: "Use $when-checking-powershell-command-safety before running a Windows PowerShell command that can affect the PC or system beyond the current project, workspace, or isolated environment. Explain the affected scope and risks, then obtain my explicit approval before execution."

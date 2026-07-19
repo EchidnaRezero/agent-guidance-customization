@@ -1,10 +1,12 @@
 # Case Template
 
-## Case XXX: Short title
+## Case XXX: PowerShell execution or status principle
+
+Keep the title, Failure type, and Likely cause focused on the PowerShell principle. Put external tool or project context only in an optional Tool example of one or two lines.
 
 ### Failure type
 
-Blocked before execution by runtime policy
+PowerShell failure category
 
 ### Requested command
 
@@ -24,12 +26,17 @@ What the user actually wanted to accomplish
 
 ### Likely cause
 
-- Most likely reason for the failure
+- Most likely PowerShell execution, status, or orchestration cause
+
+### Reproduction evidence
+
+- Record only the tool version, error ID, exit code, or status directly observed in the current environment.
+- Add a Case to a log when direct reproduction evidence is available.
 
 ### Meaning
 
-- What this failure does mean
-- What this failure does not mean
+- What the observed result establishes
+- What remains unresolved
 
 ### Short explanation example
 
@@ -40,4 +47,8 @@ One short explanation that can be reused in user-facing responses.
 ### Safe next step
 
 - Safest practical follow-up
-- What to avoid saying or doing
+- Relevant guardrail
+
+### Tool example
+
+Optional one- or two-line example containing any external tool or project context.

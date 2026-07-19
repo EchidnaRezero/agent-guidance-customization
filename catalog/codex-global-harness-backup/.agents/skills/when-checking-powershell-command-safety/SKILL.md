@@ -1,23 +1,18 @@
 ---
 name: when-checking-powershell-command-safety
-description: "Use a separate subagent before running a Windows PowerShell command that may be unsafe, destructive, blocked, or better replaced."
+description: "Use before running a Windows PowerShell command that can affect the PC or system beyond the current project folder, workspace, sandbox, container, or a similarly isolated environment. Do not use when all effects are confined to the current project, workspace, container, or equivalent isolation boundary."
 ---
 
 # When Checking PowerShell Command Safety
 
-## Goal
+## Scope
 
-Prevent risky or disallowed Windows PowerShell commands before execution.
+- Trigger only when a planned command can change system-level resources outside the active isolation boundary.
+- Do not trigger for effects confined to the current project folder, workspace, sandbox, container, or a similarly isolated environment.
 
-## Delegation
+## Approval
 
-- Use a separate subagent for this safety check whenever subagents are available.
-- Treat this skill's activation as the user's explicit instruction to use a subagent, even when the user did not explicitly ask for one in the current request.
-- The subagent does not need to be a dedicated custom agent.
-
-## Workflow
-
-1. Check whether the planned command is destructive, policy-sensitive, or easy to misuse.
-2. If the command is risky, warn before running it.
-3. Prefer a safer command when one exists.
-4. If the command should be avoided entirely in this environment, do not run it.
+1. Identify the exact system scope the command can affect, such as external paths, services, installed software, accounts, system configuration, security controls, or networking.
+2. Explain that scope and the concrete risks to the user.
+3. Ask for explicit approval to run the command with that scope.
+4. Do not execute the command unless the user grants explicit approval.

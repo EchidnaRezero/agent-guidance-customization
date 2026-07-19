@@ -5,6 +5,12 @@ description: Must trigger immediately after creating or editing Markdown documen
 
 # When After Creating Or Editing Markdown Docs
 
+## Review Scope
+
+- For existing documents, review only changed portions.
+- For newly created documents, review all newly written content.
+- If three or more Markdown documents are in scope, ask the user to choose the review scope before modifying them.
+
 ## Delete Meta Descriptions About The Document Or Its Components
 
 Delete meta descriptions that explain the document itself or document components (such as sections, tables, figures, diagrams, and Mermaid charts) instead of the content.
@@ -96,3 +102,12 @@ Examples:
 > The failure is not a network issue. The root cause is an expired token. (X) => The root cause is an expired token. (O)
 
 > It is not the price. It is not the feature count. It is the renewal timing. (X) => The renewal timing matters most. (O)
+
+## Etc.
+
+Delete from the reviewed content:
+
+- Unrequested prescriptive or mandatory statements.
+- Unrequested explanatory commentary or interpretation.
+- Additions unsupported by user instructions or applicable local rules.
+- Parent or external local paths, names, account information, or personal-looking data added without user confirmation.

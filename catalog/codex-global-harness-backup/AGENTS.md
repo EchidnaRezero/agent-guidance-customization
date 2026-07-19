@@ -23,7 +23,9 @@
 - If a security design looks heavier than the chosen level, explain why and get confirmation before proceeding.
 
 ## Git
-- Use the `git_steward` custom agent for Git workflow checks, identity handling, commit and push readiness, and safe cleanup decisions.
+- Use read-only Git commands directly only when file history or existing changes are necessary evidence for the current request.
+- Do not perform Git checks as a default preflight for unrelated work.
+- Use the `git_steward` custom agent for Git workflow decisions and state-changing Git operations, including staging, commit, push, pull, merge, branch or worktree changes, discard or cleanup, identity selection, and SSH account checks.
 
 ## Code Design
 - Give each file, class, and function one clear job.

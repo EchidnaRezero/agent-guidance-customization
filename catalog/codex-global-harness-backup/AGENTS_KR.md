@@ -23,7 +23,9 @@
 - 보안 설계가 선택한 수준보다 무거워 보이면 이유를 설명하고 확인을 받습니다.
 
 ## Git
-- Git workflow 점검, identity 처리, commit/push 준비, 안전한 cleanup 판단에는 `git_steward` 커스텀 에이전트를 사용합니다.
+- 현재 요청의 증거로 파일 이력이나 기존 변경 사항이 필요한 경우에만 읽기 전용 Git 명령을 직접 사용합니다.
+- 관련 없는 작업에는 Git 점검을 기본 사전 절차로 수행하지 않습니다.
+- stage, commit, push, pull, merge, branch 또는 worktree 변경, discard 또는 cleanup, identity 선택, SSH 계정 점검을 포함한 Git workflow 결정과 상태 변경 Git 작업에는 `git_steward` 커스텀 에이전트를 사용합니다.
 
 ## Code Design
 - 각 파일, 클래스, 함수는 역할을 하나씩만 갖게 합니다.
