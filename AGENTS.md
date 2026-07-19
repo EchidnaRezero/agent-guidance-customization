@@ -1,6 +1,8 @@
 ## Workflow
 - If the user names a file such as `AGENTS.md`, `README.md`, or a skill and the target harness is ambiguous, ask which harness they mean before editing or interpreting it.
 - Build experimental guidance under `workbench/<name>/` before promoting it elsewhere in this repository.
+- Treat an item as approved for catalog promotion when the user explicitly requests promotion or requests a push whose scope includes added or updated files under `catalog/<name>/`.
+- Apply `catalog-builder` to each item approved for promotion.
 - If more detailed specs, official grounding, or newer information is needed for this repository's guidance work, verify with the relevant official source or Context7 when available.
 
 ## Docs
