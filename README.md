@@ -47,5 +47,4 @@ skills/
 
 ## Credits
 
-- `superpowers` custom workflow bundle is based on [`obra/superpowers`](https://github.com/obra/superpowers).
-- `obra/superpowers` is distributed under the MIT License.
+- [`obra/superpowers`](https://github.com/obra/superpowers)
